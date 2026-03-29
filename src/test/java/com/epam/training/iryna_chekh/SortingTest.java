@@ -1,14 +1,11 @@
 package com.epam.training.iryna_chekh;
 
+import com.epam.training.iryna_chekh.driver.Driver;
 import com.epam.training.iryna_chekh.page.LoginPage;
 import com.epam.training.iryna_chekh.page.ProductsPage;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import com.epam.training.iryna_chekh.user.User;
+import org.testng.ITestResult;
+import org.testng.annotations.*;
 
 import java.util.Comparator;
 import java.util.List;
@@ -18,27 +15,16 @@ import static org.testng.Assert.assertEquals;
 
 
 public class SortingTest {
-    private WebDriver driver;
-    private final String resourcesPath = "src\\main\\resources\\";
-    private final User currentUser = new User();
+    private Driver driver;
+    private User currentUser = UserGenerator.createUser();
 
 
     @Parameters("browser")
     @BeforeMethod
     public void initDriver(String browser) {
-        if (driver == null) {
-            switch (browser) {
-                case "chrome":
-                    System.setProperty("webbrowser.chrome.driver", resourcesPath + "chromedriver.exe");
-                    driver = new ChromeDriver();
-                    break;
-                case "firefox":
-                    System.setProperty("webbrowser.firefox.driver", resourcesPath + "geckodriver.exe");
-                    driver = new FirefoxDriver();
-                    break;
-            }
-        }
-        driver.manage().window().maximize();
+        driver = new Driver();
+        driver.setDriver(browser);
+
     }
 
     private ProductsPage login(User user) {
@@ -87,8 +73,7 @@ public class SortingTest {
 
 
     @AfterMethod
-    public void closeDriver() {
-        driver.quit();
-        driver = null;
+    public void closeDriver(ITestResult result) {
+        driver.closeDriver();
     }
 }

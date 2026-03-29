@@ -1,7 +1,7 @@
 package com.epam.training.iryna_chekh.page;
 
+import com.epam.training.iryna_chekh.driver.Driver;
 import com.epam.training.iryna_chekh.SortingParameter;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -21,9 +21,9 @@ public class ProductsPage extends AbstractPage{
     @FindBy(css="div[data-test=inventory-item-price]")
     List<WebElement> productPrices;
 
-    public ProductsPage(WebDriver driver) {
+    public ProductsPage(Driver driver) {
         super(driver);
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver.getDriver(),this);
     }
 
     public ProductsPage sortElements(SortingParameter sortingParameter){

@@ -1,11 +1,11 @@
 package com.epam.training.iryna_chekh.page;
 
-import org.openqa.selenium.WebDriver;
+import com.epam.training.iryna_chekh.driver.Driver;
 
 public abstract class AbstractPage {
-    protected WebDriver driver;
+    protected Driver driver;
 
-    public AbstractPage(WebDriver driver) {
+    public AbstractPage(Driver driver) {
         this.driver = driver;
     }
 }

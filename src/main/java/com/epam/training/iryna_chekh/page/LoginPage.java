@@ -1,7 +1,7 @@
 package com.epam.training.iryna_chekh.page;
 
-import com.epam.training.iryna_chekh.User;
-import org.openqa.selenium.WebDriver;
+import com.epam.training.iryna_chekh.driver.Driver;
+import com.epam.training.iryna_chekh.user.User;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -17,13 +17,13 @@ public class LoginPage extends AbstractPage {
     @FindBy(css = "input[id=login-button]")
     private WebElement loginButton;
 
-    public LoginPage(WebDriver driver) {
+    public LoginPage(Driver driver) {
         super(driver);
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver.getDriver(),this);
     }
 
     public LoginPage openPage(){
-        driver.get("https://www.saucedemo.com/");
+        driver.getDriver().get("https://www.saucedemo.com/");
         return this;
     }
 
