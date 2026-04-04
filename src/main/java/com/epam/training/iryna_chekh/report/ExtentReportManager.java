@@ -7,7 +7,7 @@ public class ExtentReportManager {
     private static ExtentReports extentReport;
 
     public static ExtentReports getExtentReport() {
-        if (extentReport==null){
+        if (extentReport == null) {
             String reportPath = "reports\\report.html";
             ExtentSparkReporter report = new ExtentSparkReporter(reportPath);
             report.config().setReportName("Automation testing");

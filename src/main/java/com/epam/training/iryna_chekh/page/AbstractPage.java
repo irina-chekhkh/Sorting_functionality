@@ -1,14 +1,16 @@
 package com.epam.training.iryna_chekh.page;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
 public abstract class AbstractPage {
     protected WebDriver driver;
-    protected Duration DURATION = Duration.ofSeconds(10);
+    protected WebDriverWait wait;
 
     public AbstractPage(WebDriver driver) {
         this.driver = driver;
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 }

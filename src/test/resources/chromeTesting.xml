@@ -1,9 +1,0 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="CromeTesting" parallel="tests">
-    <test name="ChromeTest">
-        <parameter name="browser" value="chrome"/>
-        <classes>
-            <class name="com.epam.training.iryna_chekh.SortingTest"/>
-        </classes>
-    </test>
-</suite>
