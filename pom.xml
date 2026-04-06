@@ -46,7 +46,6 @@
             <version>4.0.0-M1</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
 
@@ -60,7 +59,7 @@
                     <parallel>methods</parallel>
                     <threadCount>4</threadCount>
 
-                   <suiteXmlFiles>
+                    <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/parallelTesting.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>

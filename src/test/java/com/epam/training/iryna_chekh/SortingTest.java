@@ -5,7 +5,6 @@ import com.epam.training.iryna_chekh.page.LoginPage;
 import com.epam.training.iryna_chekh.page.ProductsPage;
 import com.epam.training.iryna_chekh.report.ExtentTestManager;
 import com.epam.training.iryna_chekh.user.User;
-import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 

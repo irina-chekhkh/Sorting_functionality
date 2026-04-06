@@ -1,6 +1,8 @@
 package com.epam.training.iryna_chekh.page;
 
+import com.aventstack.extentreports.Status;
 import com.epam.training.iryna_chekh.SortingParameter;
+import com.epam.training.iryna_chekh.report.ExtentTestManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -28,6 +30,11 @@ public class ProductsPage extends AbstractPage {
         PageFactory.initElements(driver, this);
     }
 
+    private void sendInfoToLoggerAndReport(String description) {
+        LOGGER.info(description);
+        ExtentTestManager.log(Status.INFO, description);
+    }
+
     public ProductsPage sortElements(SortingParameter sortingParameter) {
         WebElement sortDropdown = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(
@@ -35,8 +42,7 @@ public class ProductsPage extends AbstractPage {
                 )
         );
 
-        LOGGER.info("Choosing sorting type:" + sortingParameter.name());
-
+        sendInfoToLoggerAndReport("Choosing sorting type:" + sortingParameter.name());
         new Select(sortDropdown).selectByValue(
                 sortingParameter.getValue()
         );
@@ -44,14 +50,14 @@ public class ProductsPage extends AbstractPage {
     }
 
     public List<String> getProductsNames() {
-        LOGGER.info("Getting products names");
+        sendInfoToLoggerAndReport("Getting products names");
         return productNames.stream()
                 .map(WebElement::getText)
                 .collect(Collectors.toList());
     }
 
     public List<Double> getProductsPrice() {
-        LOGGER.info("Getting product prices");
+        sendInfoToLoggerAndReport("Getting product prices");
         return productPrices.stream()
                 .map(e -> Double.parseDouble(
                                 e.getText().replace("$", "")
