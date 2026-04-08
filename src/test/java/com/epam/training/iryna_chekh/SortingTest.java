@@ -11,8 +11,7 @@ import org.testng.annotations.*;
 import java.util.Comparator;
 import java.util.List;
 
-
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @Listeners({com.epam.training.iryna_chekh.ExtentTestListener.class})
 public class SortingTest {
@@ -43,6 +42,10 @@ public class SortingTest {
                 .getProductsNames();
 
         assertThat(actualNames)
+                .describedAs("Array of products names shouldn't be empty")
+                .isNotEmpty();
+
+        assertThat(actualNames)
                 .describedAs("Product names should be sorted alphabetically")
                 .isSortedAccordingTo(Comparator.naturalOrder());
     }
@@ -55,6 +58,10 @@ public class SortingTest {
         List<String> actualNames = login(currentUser)
                 .sortElements(SortingParameter.TITLE_DES)
                 .getProductsNames();
+
+        assertThat(actualNames)
+                .describedAs("Array of products names shouldn't be empty")
+                .isNotEmpty();
 
         assertThat(actualNames)
                 .describedAs("Product names should be sorted in reverse alphabetical order")
@@ -71,6 +78,10 @@ public class SortingTest {
                 .getProductsPrice();
 
         assertThat(actualPrices)
+                .describedAs("Array of products prices shouldn't be empty")
+                .isNotEmpty();
+
+        assertThat(actualPrices)
                 .describedAs("Product prices should be sorted in ascending order")
                 .isSortedAccordingTo(Comparator.naturalOrder());
     }
@@ -83,6 +94,10 @@ public class SortingTest {
         List<Double> actualPrices = login(currentUser)
                 .sortElements(SortingParameter.PRICE_DES)
                 .getProductsPrice();
+
+        assertThat(actualPrices)
+                .describedAs("Array of products prices shouldn't be empty")
+                .isNotEmpty();
 
         assertThat(actualPrices)
                 .describedAs("Product prices should be sorted in descending order")
