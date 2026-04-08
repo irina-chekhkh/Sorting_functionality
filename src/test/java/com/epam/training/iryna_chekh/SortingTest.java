@@ -42,7 +42,7 @@ public class SortingTest {
                 .getProductsNames();
 
         assertThat(actualNames)
-                .describedAs("Array of products names shouldn't be empty")
+                .describedAs("Product names array should not be empty")
                 .isNotEmpty();
 
         assertThat(actualNames)
@@ -60,7 +60,7 @@ public class SortingTest {
                 .getProductsNames();
 
         assertThat(actualNames)
-                .describedAs("Array of products names shouldn't be empty")
+                .describedAs("Product names array should not be empty")
                 .isNotEmpty();
 
         assertThat(actualNames)
@@ -78,7 +78,7 @@ public class SortingTest {
                 .getProductsPrice();
 
         assertThat(actualPrices)
-                .describedAs("Array of products prices shouldn't be empty")
+                .describedAs("Product prices array should not be empty")
                 .isNotEmpty();
 
         assertThat(actualPrices)
@@ -96,7 +96,7 @@ public class SortingTest {
                 .getProductsPrice();
 
         assertThat(actualPrices)
-                .describedAs("Array of products prices shouldn't be empty")
+                .describedAs("Product prices array should not be empty")
                 .isNotEmpty();
 
         assertThat(actualPrices)
